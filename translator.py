@@ -2,10 +2,11 @@ from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 
 model_path = "facebook/nllb-200-distilled-600M"
 
-tokenizer = AutoTokenizer.from_pretrained(model_path, local_files_only=True)
-model = AutoModelForSeq2SeqLM.from_pretrained(model_path, local_files_only=True)
+# Allow downloading from internet if model not present
+tokenizer = AutoTokenizer.from_pretrained(model_path)
+model = AutoModelForSeq2SeqLM.from_pretrained(model_path)
 
-# Custom language mapping
+# Language code mapping
 lang_code_to_id = {
     "eng_Latn": tokenizer.convert_tokens_to_ids("__eng_Latn__"),
     "hin_Deva": tokenizer.convert_tokens_to_ids("__hin_Deva__"),
