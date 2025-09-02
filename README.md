@@ -2,6 +2,8 @@
 
 This project is a **document-based, multilingual chatbot** powered by open-source AI models and tools. It supports both **offline and online deployment** and is currently being hosted on **Hugging Face Spaces** using Gradio.
 
+[![Deploy to Hugging Face](https://img.shields.io/badge/HuggingFace-Deployed-blue)](https://huggingface.co/spaces/<your-username>/<your-space>)
+
 ---
 
 ## 🧠 Core Technologies
@@ -35,8 +37,7 @@ This project is a **document-based, multilingual chatbot** powered by open-sourc
 ├── chroma_db/ # Vector database storage
 ├── requirements.txt # Python dependencies
 
-yaml
-Copy code
+
 
 ---
 
