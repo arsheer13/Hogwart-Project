@@ -10,3 +10,5 @@ huggingface-hub==0.34.4
 langdetect==1.0.9
 python-docx==1.2.0
 PyPDF2==3.0.1
+gradio
+
