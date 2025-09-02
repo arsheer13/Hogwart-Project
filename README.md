@@ -1,66 +1,70 @@
-# Hogwart-Project
+# 🌐 SLM Multilingual Chatbot (Hindi | English | Marathi)
 
-# 🧠 SLM Multilingual Chatbot (Offline)
+This project is a **document-based, multilingual chatbot** powered by open-source AI models and tools. It supports both **offline and online deployment** and is currently being hosted on **Hugging Face Spaces** using Gradio.
 
-This is a multilingual, offline-capable AI chatbot built using:
-- 🗂️ LangChain + ChromaDB for RAG (Retrieval-Augmented Generation)
-- 🧠 Ollama LLM (Mistral)
-- 🌐 Flask for frontend (lightweight)
-- 🌍 NLLB-200 for translation (Hindi, Marathi, English)
-- 🇮🇳 Optional integration with Bhashini & Indic ecosystem (future scope)
+---
+
+## 🧠 Core Technologies
+
+- **LLM Engine:** Ollama (Mistral) for offline response generation
+- **RAG:** LangChain + ChromaDB for Retrieval-Augmented Generation
+- **Multilingual Translation:** Meta’s [NLLB-200](https://huggingface.co/facebook/nllb-200-distilled-600M)
+- **Deployment (Current):** [Gradio](https://www.gradio.app/) on Hugging Face Spaces
+- **Language Support:** Hindi (`hi`), Marathi (`mr`), English (`en`)
+- **Optional Integrations (Future):** [Bhashini](https://bhashini.gov.in/), [IndicNLP](https://github.com/AI4Bharat/indicTrans2)
+
+---
 
 ## 🚀 Features
-- Document-based answers (PDFs uploaded beforehand by the developer)
-- Works fully offline
-- Multilingual support (hi, en, mr)
-- Gives citations from source files and page numbers
 
-## 📁 File Structure
+- 🔍 **Document-based Q&A:** Uses vector search on preloaded documents (PDF/DOCX)
+- 🌐 **Multilingual:** Understands and answers in Hindi, Marathi, or English
+- 🧠 **Offline-Capable Architecture:** Can run without internet using Ollama + NLLB
+- 📄 **References Provided:** Includes file names and page numbers from sources
+- 💬 **Voice & WhatsApp-ready (optional future upgrades)**
 
-## 📁 File Structure
-├── app.py
-├── translator.py
-├── rag_chain.py
-├── doc_loader.py
-├── documents/
-├── chroma_db/
-├── templates/
-│ └── index.html
-├── requirements.txt
+---
 
-bash
-Copy
-Edit
+## 🗂️ Project Structure
 
-## 🛠️ How to Run
-```bash
-# Activate virtual environment
-source nllb_env/bin/activate
-
-# Run the app
-python app.py
-Then open http://127.0.0.1:5000 in your browser.
-
-📌 Notes
-This chatbot is preloaded with documents — users cannot upload files themselves.
-
-Best used for local governance/PRI projects with offline access needs.
+├── app.py # Gradio interface logic
+├── translator.py # NLLB-200 translation utility
+├── rag_chain.py # Retrieval + generation logic using LangChain
+├── doc_loader.py # PDF/DOCX parsing and ingestion
+├── documents/ # Pre-uploaded document files
+├── chroma_db/ # Vector database storage
+├── requirements.txt # Python dependencies
 
 yaml
-Copy
-Edit
+Copy code
 
 ---
 
-### 🟦 3. Save the File
+## 🧪 How to Run Locally
 
-Save the file inside your `Ron` or `SLM_Project` folder.
+```bash
+# 1. Create virtual environment
+python3 -m venv nllb_env
+source nllb_env/bin/activate
 
----
+# 2. Install dependencies
+pip install -r requirements.txt
 
-Would you like me to add:
-- Your name as author?
-- Any links to demo?
-- Version info?
+# 3. Run Gradio app
+python app.py
+Then open the Gradio link shown in your terminal (typically http://127.0.0.1:7860).
 
-Just let me know and I’ll update the README accordingly.
+📝 Notes
+Users cannot upload their own documents yet; only the developer can preload them.
+
+Designed for low-connectivity governance use-cases (e.g. Gram Panchayats, PRI systems).
+
+Translations are powered by NLLB-200 locally, fetched once and cached.
+
+To save RAM on deployment, make sure model files are pre-cached or compressed.
+
+🧑‍💻 Author
+Built with 💡 by Arshee Rizvi
+If citing or sharing, please attribute appropriately.
+📧 arshee.rizvi@diu.one
+
